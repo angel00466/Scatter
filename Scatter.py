@@ -20,6 +20,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(status=discord.Status.invisible)
     print(f"登入成功！機器人：{bot.user}")
 
 @bot.event
