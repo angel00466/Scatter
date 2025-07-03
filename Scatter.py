@@ -24,7 +24,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    # 忽略自己的訊息
+    # 忽略自己的訊息和其他機器人訊息
     if message.author.bot:
         return
 
@@ -32,10 +32,15 @@ async def on_message(message):
     if message.author.id == TARGET_USER_ID:
         target_channel = bot.get_channel(TARGET_CHANNEL_ID)
         if target_channel:
-            await target_channel.send(
-                f"📢 {message.author.display_name} 在 {message.channel.mention} 說：\n{message.content}"
-            )
-    
+            files = []
+            for attachment in message.attachments:
+                file = await attachment.to_file()
+                files.append(file)
+
+            content = f"📢 {message.author.display_name} 在 {message.channel.mention} 說：\n{message.content}"
+
+            await target_channel.send(content=content, files=files)
+
     # 保留指令功能
     await bot.process_commands(message)
 
