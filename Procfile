@@ -1,1 +1,1 @@
-python Scatter.py
+web: python Scatter.py
