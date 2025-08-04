@@ -1,0 +1,22 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# 虛擬環境資料夾（如果你用 venv ）
+venv/
+.env
+
+# 忽略所有 .env 環境變數設定檔（你本機可以用）
+.env*
+
+# 忽略系統檔案
+.DS_Store
+Thumbs.db
+
+# 忽略 IDE 設定檔
+.vscode/
+.idea/
+
+# 忽略敏感檔案（像是放 Token 的檔案，假設你有）
+config.ini
+secret.txt
