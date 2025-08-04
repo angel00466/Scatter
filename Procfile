@@ -1,1 +1,1 @@
-web: python Scatter.py
+worker: python Scatter.py
